@@ -1,0 +1,32 @@
+---
+
+services_list:
+  - enabled: true
+    state: restarted
+    systemd:
+      name: keepalived.service
+      # masked: false
+      # scope: system
+    sysvinit:
+      name: keepalived
+      runlevel: 5
+
+  - enabled: true
+    state: restarted
+    systemd:
+      name: rsyslog.service
+      masked: false
+      scope: system
+    sysvinit:
+      # name: rsyslog
+      runlevel: 5
+
+  - enabled: true
+    state: stopped
+    systemd:
+      name: "{{ 'httpd.service' if ansible_os_family == 'RedHat' else 'apache2.service' }}"
+      # masked: false
+      # scope: system
+    sysvinit:
+      name: "{{ 'httpd' if ansible_os_family == 'RedHat' else 'apache2' }}"
+      runlevel: 5
