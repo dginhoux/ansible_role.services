@@ -1,7 +1,9 @@
 ---
 galaxy_info:
   role_name: services
-  description: dginhoux.services
+  description: |
+    This ansible role configure services state. 
+    It support sysvinit and systemd.
   author: Dany GINHOUX
   company: dginhoux
   license: MIT
