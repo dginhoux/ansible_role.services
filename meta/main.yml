@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  role_name: services
+  role_name: services_state
   description: |
     This ansible role configure services state. 
     It support sysvinit and systemd.

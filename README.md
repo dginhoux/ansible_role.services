@@ -1,4 +1,4 @@
-# ROLE dginhoux.services
+# ROLE dginhoux.services_state
 
 
 
@@ -38,12 +38,12 @@ None.
 #### ANSIBLE GALAXY
 
 ```shell
-ansible-galaxy install dginhoux.services
+ansible-galaxy install dginhoux.services_state
 ```
 #### GIT
 
 ```shell
-git clone https://github.com/dginhoux/ansible_role.services dginhoux.services
+git clone https://github.com/dginhoux/ansible_role.services_state dginhoux.services_state
 ```
 
 
@@ -54,9 +54,9 @@ git clone https://github.com/dginhoux/ansible_role.services dginhoux.services
 ```yaml
 - hosts: all
   roles:
-    - name: start role dginhoux.services
+    - name: start role dginhoux.services_state
       ansible.builtin.include_role:
-        name: dginhoux.services
+        name: dginhoux.services_state
 ```
 
 
@@ -67,7 +67,7 @@ git clone https://github.com/dginhoux/ansible_role.services dginhoux.services
 Defaults variables defined in `defaults/main.yml` : 
 
 ```yaml
-services_list:
+services_state_list:
   - enabled: true
     state: restarted
     systemd:

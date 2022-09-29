@@ -6,7 +6,7 @@
     enabled: "{{ service.enabled }}"
     state: "{{ service.state }}"
     runlevel: "{{ service.sysvinit.runlevel | default (omit) }}"
-  loop: "{{ services_list | flatten }}"
+  loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
   when: ansible_service_mgr == "sysvinit"
@@ -20,7 +20,7 @@
     masked: "{{ service.systemd.masked | default (omit) }}"
     scope: "{{ service.systemd.scope | default (omit) }}"
     daemon_reload: yes
-  loop: "{{ services_list | flatten }}"
+  loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
   when: ansible_service_mgr == "systemd"
