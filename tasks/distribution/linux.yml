@@ -9,6 +9,7 @@
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
+  ignore_errors: true
   when: ansible_service_mgr == "sysvinit"
 
 
@@ -23,4 +24,5 @@
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
+  ignore_errors: true
   when: ansible_service_mgr == "systemd"
