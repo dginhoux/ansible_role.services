@@ -1,11 +1,11 @@
 ---
 
-- name: manage sysvinit services
-  service:
+- name: Manage sysvinit services
+  ansible.builtin.service:
     name: "{{ service.sysvinit.name }}"
     enabled: "{{ service.enabled }}"
     state: "{{ service.state }}"
-    runlevel: "{{ service.sysvinit.runlevel | default (omit) }}"
+    runlevel: "{{ service.sysvinit.runlevel | default(omit) }}"
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
@@ -13,14 +13,14 @@
   when: ansible_service_mgr == "sysvinit"
 
 
-- name: manage systemd services
-  systemd:
+- name: Manage systemd services
+  ansible.builtin.systemd:
     name: "{{ service.systemd.name }}"
     enabled: "{{ service.enabled }}"
     state: "{{ service.state }}"
-    masked: "{{ service.systemd.masked | default (omit) }}"
-    scope: "{{ service.systemd.scope | default (omit) }}"
-    daemon_reload: yes
+    masked: "{{ service.systemd.masked | default(omit) }}"
+    scope: "{{ service.systemd.scope | default(omit) }}"
+    daemon_reload: true
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
