@@ -5,6 +5,7 @@
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
+    label: "{{ service.sysvinit.name }}, state: {{ service.state }}"
   ignore_errors: true
   ansible.builtin.service:
     name: "{{ service.sysvinit.name }}"
@@ -18,6 +19,7 @@
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
+    label: "service: {{ service.systemd.name }}, state: {{ service.state }}"
   ignore_errors: true
   ansible.builtin.systemd:
     name: "{{ service.systemd.name }}"
