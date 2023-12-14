@@ -1,7 +1,9 @@
 ---
 
 - name: Manage sysvinit services
-  when: ansible_service_mgr == "sysvinit"
+  become: true
+  when:
+    - ansible_service_mgr == "sysvinit"
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
@@ -15,7 +17,9 @@
 
 
 - name: Manage systemd services
-  when: ansible_service_mgr == "systemd"
+  become: true
+  when:
+    - ansible_service_mgr == "systemd"
   loop: "{{ services_state_list | flatten }}"
   loop_control:
     loop_var: service
