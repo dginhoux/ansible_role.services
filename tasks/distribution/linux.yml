@@ -4,7 +4,7 @@
   become: true
   when:
     - ansible_service_mgr == "sysvinit"
-  loop: "{{ services_state_list | flatten }}"
+  loop: "{{ services_state_list + services_state_list_group + services_state_list_host | flatten(levels=1) }}"
   loop_control:
     loop_var: service
     label: "{{ service.sysvinit.name }}, state: {{ service.state }}"
@@ -20,7 +20,7 @@
   become: true
   when:
     - ansible_service_mgr == "systemd"
-  loop: "{{ services_state_list | flatten }}"
+  loop: "{{ services_state_list + services_state_list_group + services_state_list_host | flatten(levels=1) }}"
   loop_control:
     loop_var: service
     label: "service: {{ service.systemd.name }}, state: {{ service.state }}"
