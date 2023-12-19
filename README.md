@@ -49,9 +49,10 @@ git clone https://github.com/dginhoux/ansible_role.services_state dginhoux.servi
 #### EXAMPLE PLAYBOOK
 
 ```yaml
-- hosts: all
+- name: Playbook
+  hosts: all
   roles:
-    - name: start role dginhoux.services_state
+    - name: Start role dginhoux.services_state
       ansible.builtin.include_role:
         name: dginhoux.services_state
 ```
@@ -94,7 +95,14 @@ services_state_list:
     sysvinit:
       name: "{{ 'httpd' if ansible_os_family == 'RedHat' else 'apache2' }}"
       runlevel: 3
+
+services_state_list_group: []
+services_state_list_host: []
 ```
+
+NOTE : Theses 3 lists `services_state_list`, `services_state_list_group` and `services_state_list_host` are merged. <br />
+You can use the host and group lists to specify users per host or group off hosts.
+
 
 #### DEFAULT OS SPECIFIC VARIABLES
 
