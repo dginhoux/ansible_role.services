@@ -62,7 +62,10 @@ git clone https://github.com/dginhoux/ansible_role.services_state dginhoux.servi
 
 #### DEFAULT VARIABLES
 
-Defaults variables defined in `defaults/main.yml` : 
+Defaults variables defined in `defaults/main.yml`
+
+#### EXAMPLES VARIABLES
+
 
 ```yaml
 services_state_list:
