@@ -1,13 +1,9 @@
 # ROLE dginhoux.services_state
 
-
-
 ## DESCRIPTION
 
 This ansible role configure services state.<br />
 It support sysvinit and systemd.
-
-
 
 ## REQUIREMENTS
 
@@ -28,8 +24,6 @@ Ansible >= 2.13
 
 None.
 
-
-
 ## INSTALLATION
 
 #### ANSIBLE GALAXY
@@ -42,7 +36,6 @@ ansible-galaxy install dginhoux.services_state
 ```shell
 git clone https://github.com/dginhoux/ansible_role.services_state dginhoux.services_state
 ```
-
 
 ## USAGE
 
@@ -57,7 +50,6 @@ git clone https://github.com/dginhoux/ansible_role.services_state dginhoux.servi
         name: dginhoux.services_state
 ```
 
-
 ## VARIABLES
 
 #### DEFAULT VARIABLES
@@ -65,7 +57,6 @@ git clone https://github.com/dginhoux/ansible_role.services_state dginhoux.servi
 Defaults variables defined in `defaults/main.yml`
 
 #### EXAMPLES VARIABLES
-
 
 ```yaml
 services_state_list:
@@ -114,13 +105,9 @@ One of theses is loaded dynamically during role runtime using the `include_vars`
 
 `NOT USED BY THIS ROLE`
 
-
-
 ## AUTHOR
 
 Dany GINHOUX - https://github.com/dginhoux
-
-
 
 ## LICENSE
 
